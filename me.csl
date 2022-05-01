@@ -7,7 +7,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2022-05-01T14:07:01+00:00</updated>
+    <updated>2022-05-01T14:44:05+00:00</updated>
   </info>
   <macro name="author">
     <names variable="author">
@@ -95,8 +95,11 @@
               </group>
               <text variable="page"/>
             </if>
-            <else-if type="article article-journal article-magazine article-newspaper webpage" match="any">
+            <else-if type="article article-journal article-magazine article-newspaper" match="any">
               <text variable="container-title" font-style="italic" font-variant="normal"/>
+            </else-if>
+            <else-if type="webpage" match="any">
+              <text variable="container-title" font-style="italic" text-decoration="none"/>
             </else-if>
           </choose>
         </group>
