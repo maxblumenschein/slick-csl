@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never">
-  <!-- This style was edited with the Visual CSL Editor (https://editor.citationstyles.org/visualEditor/) -->
   <info>
     <title>ME</title>
     <id>http://www.zotero.org/styles/me</id>
@@ -8,7 +7,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2022-05-01T12:45:41+00:00</updated>
+    <updated>2022-05-01T14:02:34+00:00</updated>
   </info>
   <macro name="author">
     <names variable="author">
@@ -22,15 +21,16 @@
     </names>
   </macro>
   <macro name="title">
-    <group delimiter=" ">
+    <group>
       <choose>
         <if type="article article-magazine entry article-journal article-newspaper entry-dictionary entry-encyclopedia bill chapter webpage" match="any">
           <text variable="title" quotes="true" font-style="normal"/>
         </if>
         <else>
           <text variable="title" font-style="italic"/>
-          <names variable="translator">
-            <name/>
+          <names variable="translator" prefix=", ">
+            <label form="verb" suffix=" "/>
+            <name delimiter=" / "/>
           </names>
         </else>
       </choose>
