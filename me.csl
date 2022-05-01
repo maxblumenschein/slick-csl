@@ -96,7 +96,9 @@
               <text variable="page"/>
             </if>
             <else-if type="article article-journal article-magazine article-newspaper webpage" match="any">
-              <text variable="container-title" font-style="italic" font-variant="normal"/>
+              <group font-style="italic">
+                <text variable="container-title" font-style="italic" font-variant="normal"/>
+              </group>
             </else-if>
           </choose>
         </group>
