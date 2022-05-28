@@ -7,7 +7,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2022-05-28T16:00:52+00:00</updated>
+    <updated>2022-05-28T19:10:50+00:00</updated>
   </info>
   <macro name="author">
     <names variable="author">
@@ -70,12 +70,13 @@
           </if>
         </choose>
         <date date-parts="year" form="text" variable="issued" prefix="(" suffix=")"/>
+        <text variable="locator"/>
       </group>
     </layout>
   </citation>
   <bibliography hanging-indent="true" et-al-min="11" et-al-use-first="7" subsequent-author-substitute="———" entry-spacing="0">
     <sort>
-      <key macro="contributor"/>
+      <key macro="author"/>
       <key variable="issued"/>
       <key variable="title"/>
     </sort>
