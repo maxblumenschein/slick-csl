@@ -8,7 +8,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2022-05-27T21:55:47+00:00</updated>
+    <updated>2022-05-28T15:56:49+00:00</updated>
   </info>
   <macro name="author">
     <names variable="author">
@@ -76,8 +76,9 @@
   </citation>
   <bibliography hanging-indent="true" et-al-min="11" et-al-use-first="7" subsequent-author-substitute="———" entry-spacing="0">
     <sort>
-      <key macro="author"/>
-      <key variable="author"/>
+      <key macro="contributor"/>
+      <key variable="issued"/>
+      <key variable="title"/>
     </sort>
     <layout font-style="normal" suffix=".">
       <group delimiter=" ">
