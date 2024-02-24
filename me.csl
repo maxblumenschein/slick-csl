@@ -7,7 +7,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2022-06-24T09:57:46+00:00</updated>
+    <updated>2024-02-24T14:54:46+00:00</updated>
   </info>
   <macro name="author">
     <names variable="author">
@@ -43,7 +43,17 @@
   </macro>
   <macro name="issued">
     <text variable="publisher" suffix=", "/>
-    <date date-parts="year" form="text" variable="issued"/>
+    <group delimiter=" ">
+      <date date-parts="year" form="text" variable="issued"/>
+      <choose>
+        <if match="any" variable="original-date">
+          <group delimiter=" " prefix="(" suffix=")">
+            <text term="original-work-published"/>
+            <date date-parts="year" form="text" variable="original-date"/>
+          </group>
+        </if>
+      </choose>
+    </group>
   </macro>
   <macro name="place">
     <text variable="publisher-place"/>
@@ -69,7 +79,10 @@
             <text variable="title"/>
           </if>
         </choose>
-        <date date-parts="year" form="text" variable="issued" prefix="(" suffix=")"/>
+        <group delimiter="/" prefix="(" suffix=")">
+          <date date-parts="year" form="text" variable="original-date"/>
+          <date date-parts="year" form="text" variable="issued"/>
+        </group>
         <text variable="locator"/>
       </group>
     </layout>
