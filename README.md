@@ -1,2 +1,2 @@
 # slick-csl
- custom Citation Style Language (CSL)
+ Custom Citation Style based on _Detailtypografie_ (de Jong & Forssman, 2004).
