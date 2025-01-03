@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never">
+<style xmlns="http://purl.org/net/xbiblio/csl" class="note" version="1.0" demote-non-dropping-particle="never">
   <info>
     <title>ME</title>
     <id>http://www.zotero.org/styles/me</id>
@@ -7,7 +7,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2024-10-07T18:25:53+00:00</updated>
+    <updated>2025-01-03T16:18:20+00:00</updated>
   </info>
   <locale xml:lang="de">
     <terms>
@@ -74,35 +74,46 @@
       <name delimiter=" / "/>
     </names>
   </macro>
-  <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">>
-    <layout delimiter="; ">
+  <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
+    <layout delimiter="; " suffix=".">
       <choose>
-        <if match="all" position="ibid">
-          <text term="ibid"/>
+        <if match="all" position="ibid-with-locator">
+          <text term="ibid" suffix=": "/>
+          <text variable="locator"/>
         </if>
-        <else-if match="all" position="ibid-with-locator">
+        <else-if match="all" position="ibid">
           <text term="ibid"/>
         </else-if>
         <else>
-            <group delimiter=" ">
+          <group delimiter=" ">
             <names variable="author">
-                <name form="short" delimiter=" / "/>
-                <substitute>
+              <name form="short" delimiter=" / "/>
+              <substitute>
                 <names variable="editor" delimiter=" / "/>
                 <names variable="translator" delimiter=" / "/>
-                </substitute>
+              </substitute>
             </names>
             <choose>
-                <if match="none" variable="author editor contributor container-author original-author" type="book">
+              <if match="none" variable="author editor contributor container-author original-author" type="book">
                 <text variable="title"/>
-                </if>
+              </if>
             </choose>
-            <group delimiter="/" prefix="(" suffix=")">
-                <date date-parts="year" form="text" variable="original-date"/>
-                <date date-parts="year" form="text" variable="issued"/>
-            </group>
+            <choose>
+              <if match="any" variable="locator">
+                <group delimiter="/" prefix="(" suffix="):">
+                  <date date-parts="year" form="text" variable="original-date"/>
+                  <date date-parts="year" form="text" variable="issued"/>
+                </group>
+              </if>
+              <else>
+                <group delimiter="/" prefix="(" suffix=")">
+                  <date date-parts="year" form="text" variable="original-date"/>
+                  <date date-parts="year" form="text" variable="issued"/>
+                </group>
+              </else>
+            </choose>
             <text variable="locator"/>
-            </group>
+          </group>
         </else>
       </choose>
     </layout>
