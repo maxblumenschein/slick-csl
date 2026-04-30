@@ -7,7 +7,7 @@
     <author>
       <name>Max Ehrengruber</name>
     </author>
-    <updated>2025-01-03T16:18:20+00:00</updated>
+    <updated>2026-04-30T20:00:20+00:00</updated>
   </info>
   <locale xml:lang="de">
     <terms>
@@ -75,19 +75,20 @@
     </names>
   </macro>
   <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
-    <layout delimiter="; " suffix=".">
-      <choose>
-        <if match="all" position="ibid-with-locator">
-          <text term="ibid" suffix=": "/>
-          <text variable="locator"/>
-        </if>
-        <else-if match="all" position="ibid">
-          <text term="ibid"/>
-        </else-if>
-        <else>
-          <group delimiter=" ">
+  <layout delimiter="; " suffix=".">
+    <choose>
+      <if match="all" position="ibid-with-locator">
+        <text term="ibid" suffix=": "/>
+        <text variable="locator"/>
+      </if>
+      <else-if match="all" position="ibid">
+        <text term="ibid"/>
+      </else-if>
+      <else>
+        <group delimiter=" ">
+          <group>
             <names variable="author">
-              <name form="short" delimiter=" / "/>
+              <name form="short" delimiter=" / " name-as-sort-order="none"/>
               <substitute>
                 <names variable="editor" delimiter=" / "/>
                 <names variable="translator" delimiter=" / "/>
@@ -95,29 +96,30 @@
             </names>
             <choose>
               <if match="none" variable="author editor contributor container-author original-author" type="book">
-                <text variable="title"/>
+                <text variable="title" prefix=" "/>
               </if>
             </choose>
-            <choose>
-              <if match="any" variable="locator">
-                <group delimiter="/" prefix="(" suffix="):">
-                  <date date-parts="year" form="text" variable="original-date"/>
-                  <date date-parts="year" form="text" variable="issued"/>
-                </group>
-              </if>
-              <else>
-                <group delimiter="/" prefix="(" suffix=")">
-                  <date date-parts="year" form="text" variable="original-date"/>
-                  <date date-parts="year" form="text" variable="issued"/>
-                </group>
-              </else>
-            </choose>
-            <text variable="locator"/>
           </group>
-        </else>
-      </choose>
-    </layout>
-  </citation>
+          <choose>
+            <if match="any" variable="locator">
+              <group delimiter="/" prefix="(" suffix="):">
+                <date date-parts="year" form="text" variable="original-date"/>
+                <date date-parts="year" form="text" variable="issued"/>
+              </group>
+              <text variable="locator"/>
+            </if>
+            <else>
+              <group delimiter="/" prefix="(" suffix=")">
+                <date date-parts="year" form="text" variable="original-date"/>
+                <date date-parts="year" form="text" variable="issued"/>
+              </group>
+            </else>
+          </choose>
+        </group>
+      </else>
+    </choose>
+  </layout>
+</citation>
   <bibliography subsequent-author-substitute="———" entry-spacing="0" hanging-indent="true">
     <sort>
       <key macro="author"/>
