@@ -83,7 +83,7 @@
     </names>
   </macro>
   <citation et-al-min="4" et-al-use-first="1" disambiguate-add-names="true" disambiguate-add-givenname="true" disambiguate-add-year-suffix="true">
-  <layout delimiter="; " suffix=".">
+  <layout delimiter="; ">
     <choose>
       <if match="all" position="ibid-with-locator">
         <text term="ibid" suffix=": "/>
